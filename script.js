@@ -16,7 +16,7 @@ var move = function(){
   if (parseInt(man.style.left) < (window.innerWidth - 500) && goRight === true){
     man.style.left = parseInt(man.style.left) + 23 + "px";
     man.style.width = man.width + 17 + "px";
-    if (parseInt(man.style.left) > 100){
+    if (parseInt(man.style.left) > 45){
       greeting.innerHTML = "";
     }
     if (parseInt(man.style.left) > (window.innerWidth - 550) && parseInt(man.style.left) < (window.innerWidth - 500)){
@@ -28,22 +28,25 @@ var move = function(){
     man.style.transform = "scaleX(1)";
     man.style.top = '100px';
     greeting.innerHTML = "YooHoo!!!";
-    cry.innerHTML = "";
+
   }
   else{
-
     goRight = false;
     man.style.transform = "scaleX(-1)";
     man.style.left = parseInt(man.style.left) - 23 + "px";
     man.style.width = man.width - 17 + "px";
     man.style.top = parseInt(man.style.top) + 10 + "px";
+    cry.innerHTML = "";
   }
 };
 
 init(man);
-// greeting.style.top = "50px";
-// cry.style.top = "50px";
-// cry.style.left = window.innerWidth - 50px;
+greeting.style.position = "relative";
+cry.style.position = "relative";
+greeting.style.top = "50px";
+cry.style.left = (window.innerWidth - 100) + "px";
+cry.style.top = "100px";
+//cry.style.left = window.innerWidth - 50px;
 setInterval(move, 220);
 
 //man.addEventListener('click', move);
