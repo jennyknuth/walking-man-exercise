@@ -19,11 +19,11 @@ var move = function(){
     if (parseInt(man.style.left) > 45){
       greeting.innerHTML = "";
     }
-    if (parseInt(man.style.left) > (window.innerWidth - 550) && parseInt(man.style.left) < (window.innerWidth - 500)){
+    if (parseInt(man.style.left) > (window.innerWidth - 525) && parseInt(man.style.left) < (window.innerWidth - 500)){
       cry.innerHTML = "OUCH!";
     }
   }
-  else if (parseInt(man.style.left) <= -100 && goRight === false){
+  else if (parseInt(man.style.left) <= -150 && goRight === false){
     goRight = true;
     man.style.transform = "scaleX(1)";
     man.style.top = '100px';
