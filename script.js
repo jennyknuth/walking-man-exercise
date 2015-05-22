@@ -15,15 +15,15 @@ var init = function (obj){
 
 var move = function(){
 
-  if (parseInt(man.style.left) < (window.innerWidth - 500) && goRight === true){
+  if (parseInt(man.style.left) < (window.innerWidth - (parseInt(man.style.width))*(2/3)) && goRight === true){
     man.style.left = parseInt(man.style.left) + step + 'px';
     man.style.width = man.width + grow + 'px';
     if (parseInt(man.style.left) > step){
       greeting.innerHTML = "";
     }
-    if (parseInt(man.style.left) > (window.innerWidth - (500 + step)) && parseInt(man.style.left) < (window.innerWidth - 500)){
-      cry.style.top = '100px';
-      cry.style.left = parseInt(man.style.left) + 400 + 'px';
+    if (parseInt(man.style.left) > (window.innerWidth - (((parseInt(man.style.width))*(2/3)) + (step-3))) && parseInt(man.style.left) < (window.innerWidth)){
+      cry.style.top = '50px';
+      cry.style.left = parseInt(man.style.left)+ (parseInt(man.style.width)*(1/3)) +'px';
       cry.innerHTML = 'OUCH!';
     }
   }
