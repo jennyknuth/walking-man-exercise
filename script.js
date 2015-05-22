@@ -2,6 +2,8 @@ var man = document.getElementById('man');
 var greeting = document.getElementById('greeting');
 var cry = document.getElementById('cry')
 var goRight = true;
+var step = 23;
+var girth = 17;
 
 
 var init = function (obj){
@@ -14,39 +16,41 @@ var init = function (obj){
 var move = function(){
 
   if (parseInt(man.style.left) < (window.innerWidth - 500) && goRight === true){
-    man.style.left = parseInt(man.style.left) + 23 + "px";
-    man.style.width = man.width + 17 + "px";
-    if (parseInt(man.style.left) > 45){
+    man.style.left = parseInt(man.style.left) + step + "px";
+    man.style.width = man.width + girth + "px";
+    if (parseInt(man.style.left) > step){
       greeting.innerHTML = "";
     }
-    if (parseInt(man.style.left) > (window.innerWidth - 525) && parseInt(man.style.left) < (window.innerWidth - 500)){
+    if (parseInt(man.style.left) > (window.innerWidth - (500 + step)) && parseInt(man.style.left) < (window.innerWidth - 500)){
+      cry.style.left = parseInt(man.style.left) + 400 + "px";
       cry.innerHTML = "OUCH!";
     }
   }
   else if (parseInt(man.style.left) <= -150 && goRight === false){
     goRight = true;
-    man.style.transform = "scaleX(1)";
+    man.style.transform = 'scaleX(1)';
     man.style.top = '100px';
+    greeting.style.top = '25px';
     greeting.innerHTML = "YooHoo!!!";
 
   }
   else{
     goRight = false;
     man.style.transform = "scaleX(-1)";
-    man.style.left = parseInt(man.style.left) - 23 + "px";
-    man.style.width = man.width - 17 + "px";
+    man.style.left = parseInt(man.style.left) - step + "px";
+    man.style.width = man.width - girth + "px";
     man.style.top = parseInt(man.style.top) + 10 + "px";
     cry.innerHTML = "";
   }
 };
 
 init(man);
+//init text:
 greeting.style.position = "relative";
 cry.style.position = "relative";
-greeting.style.top = "50px";
-cry.style.left = (window.innerWidth - 100) + "px";
+
 cry.style.top = "100px";
-//cry.style.left = window.innerWidth - 50px;
+
 setInterval(move, 220);
 
 //man.addEventListener('click', move);
